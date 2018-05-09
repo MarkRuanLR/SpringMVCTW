@@ -8,9 +8,7 @@
     <title>员工列表</title>
     <style>
         #table-employees {
-            margin: 0 auto;
             width: 70%;
-            border: #000000 2px solid;
             font-size: 1.6em;
             border-collapse: collapse;
         }
@@ -37,22 +35,17 @@
         <th>性别</th>
     </tr>
     <c:forEach items="${message}" var="employee" varStatus="status">
-        <c:if test="${status.index%2 !=0}">
+        <c:if test="${status.index%2 ==0}">
             <tr class="tr-employees">
+            </c:if>
+        <c:if test="${status.index%2 !=0}">
+                        <tr class="tr-employees gray">
+                        </c:if>
                 <td>${employee.getId()}</td>
                 <td>${employee.getName()}</td>
                 <td>${employee.getAge()}</td>
                 <td>${employee.getGender()}</td>
             </tr>
-        </c:if>
-        <c:if test="${status.index%2==0}">
-            <tr class="tr-employees gray">
-                <td>${employee.getId()}</td>
-                <td>${employee.getName()}</td>
-                <td>${employee.getAge()}</td>
-                <td>${employee.getGender()}</td>
-            </tr>
-        </c:if>
     </c:forEach>
 </table>
 
